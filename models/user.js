@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     }
+},
+{
+    timestamps: true 
 })
 
 userSchema.pre('save', async function (next) {
@@ -23,5 +26,6 @@ userSchema.pre('save', async function (next) {
     }
     next();
 });
+
 const user = mongoose.model('user', userSchema);
 module.exports = user;
